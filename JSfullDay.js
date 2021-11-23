@@ -100,28 +100,33 @@ const newArray = (place) => {
 
 ///CRUD
 // Create (add a taco) 
-const createUser = (array) => {
-  return [ ...tacos, array]
-}
-
-let newUser = (id, name, price, about) => {
+const newPlace = (id, name, price, about) => {
   return newUser = {id: id, name: name, price: price, about: about}
 }
+
 // x = newUser(id, 'name', price, 'about')
 // console.log(createUser(x))
 
 // Read (array of obj to array of html) 
-const readArray = (array) => {
+const readArray = (place) => {
+  console.log(place)
 }
+readArray(taco)
+
 
 // Update (update a taco) 
-const update = (place, aNewName) => {)
+const update = (place, aNewName) => {
+  let newArr = { ...place, name: aNewName}
+  return newArr;
 }
-x = update(taco1, 'taco salad')
-console.log(x)
-console.log(taco)
 
 // Remove (delete a taco) 
+const deleteTaco = (places, id) => {
+  let newArr = places.filter ((place)=>{
+    return (place.id !== id);
+  }); 
+  return newArr
+};
 
 
 
