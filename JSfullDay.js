@@ -89,26 +89,40 @@ const returnAbove19 = (array) => {
 // return a new array with a info key where it is a combo of
 // name, price, and about
 const newArray = (place) => {
-  return 
+   newArr = {info:""}
+  newInfo = {name: place.name, price: place.price, about:place.about}
+  newArr.info = newInfo
+  return newArr
 }
-
-
+// x = newArray(taco1)
+// console.log(x)
 
 
 ///CRUD
+// Create (add a taco) 
+const createUser = (array) => {
+  return [ ...tacos, array]
+}
 
-// don't change tacos array or change objects
+let newUser = (id, name, price, about) => {
+  return newUser = {id: id, name: name, price: price, about: about}
+}
+// x = newUser(id, 'name', price, 'about')
+// console.log(createUser(x))
 
-
-
-
-// READ (array of obj to array of html) 
+// Read (array of obj to array of html) 
+const readArray = (array) => {
+}
 
 // Update (update a taco) 
+const update = (place, aNewName) => {)
+}
+x = update(taco1, 'taco salad')
+console.log(x)
+console.log(taco)
 
 // Remove (delete a taco) 
 
-// Create (add a taco) 
 
 
 
