@@ -11,21 +11,21 @@ const tacos = [taco, taco1, taco2]
 // write a function that takes an taco OBJ and a id 
 // and returns a new object with name changed to "changed"
 
-const changeName = (id, name) => {
-  let newTaco = []
-  const updateName = tacos.map((place) => {
-    if (place.id !== id) {
-    } else {
-      newTaco = { ...place, name: name};
-    }
-  }); return newTaco
-};
-// let x = changeName(1, 'String Here')
+const changeID = (places, id) => {
+  let newArr = []
+  const returnArr = places.map ((place) => {
+    if (place.id === id){
+     newArr = { ...place, name: 'changed'}
+    } 
+  }); return newArr
+}
+// let x = changeID(tacos, 1)
 // console.log(x)
 
 
-// write a function that takes aa taco OBJ and returns some
+// write a function that takes a taco OBJ and returns some
 // formatted html (will be a string technically)
+
 const someInfoHere = (places) => {
 return places.map((place) => {
   return `${place.name} costs $${place.price} and people say it is ${place.about}`
@@ -45,6 +45,14 @@ const findPrice = (place) => {
 
 
 // create a new array where all of the prices is formatted with .00
+// Destructive way
+const newArr1 = (places) => {
+  return places.map((place) =>{
+    place.price = place.price.toFixed(2)
+  }); 
+}; 
+
+//Non-destructive way
 const findAllPrices = (places) => {
   return places.map ((place) => {
     let newPrice = place.price.toFixed(2)
@@ -54,9 +62,8 @@ const findAllPrices = (places) => {
 //  x = findAllPrices(tacos)
 //  console.log(x)
 
-// write a function that takes an array and logs each item in the array
 
-// hint forEach
+// write a function that takes an array and logs each item in the array
 const allItems = (arr) => {
   return arr.forEach ((item)=> {
     console.log(`The ${item.name} has been logged`)
@@ -76,26 +83,25 @@ const findItemID1 = (array) => {
 // console.log(x)
 
 // return a new array with all prices greater than 19
-const returnAbove19 = (array) => {
-  return array.filter ((place)=> {
-    if (place.price > 19) {
-      return place
-    } else {}
+const returnOver19 = (places) => {
+  return places.filter ((place)=>{
+    if (place.price > 19)
+    return place
   })
 }
-// x = returnAbove19(tacos)
+// x = returnOver19(tacos)
 // console.log(x)
 
 // return a new array with a info key where it is a combo of
 // name, price, and about
 const newArray = (place) => {
-   newArr = {info:""}
+   newArr = {info: ""}
   newInfo = {name: place.name, price: place.price, about:place.about}
   newArr.info = newInfo
   return newArr
 }
-// x = newArray(taco1)
-// console.log(x)
+//  x = newArray(taco1)
+//  console.log(x)
 
 
 ///CRUD
@@ -111,7 +117,7 @@ const newPlace = (id, name, price, about) => {
 const readArray = (place) => {
   console.log(place)
 }
-readArray(taco)
+// readArray(taco)
 
 
 // Update (update a taco) 
@@ -129,10 +135,22 @@ const deleteTaco = (places, id) => {
 };
 
 
-
-
 // bonus use reduce to return the sum of prices in tacos array
+// using forEach
+const returnSum = (places) => {
+  let sum = 0
+  places.reduce ((place)=>{
+    sum = sum + place.price 
+  }); return sum;
+}
+x = returnSum(tacos)
+console.log(x)
 
-// bonus do in rails
+// using .reduce  -Not Commplete-
+const returnSum2 = (places) => {
+  const equeation = places.reduce ((place)=>{
+      return place.price.total
+  })
+}
 
-// bonus create you own
+
